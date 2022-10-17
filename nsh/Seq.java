@@ -37,7 +37,7 @@ class Seq {
 		int s = Math.min(a, b),
 			e = Math.max(a, b);
 
-		IntStream.rangeClosed(s, e).forEach(number -> sb.append(number).append(" "););
+		IntStream.rangeClosed(s, e).forEach(number -> sb.append(number).append(" "));
 
 		return sb.toString();
 	}
