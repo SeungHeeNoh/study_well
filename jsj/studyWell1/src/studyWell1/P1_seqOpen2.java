@@ -1,5 +1,8 @@
 package studyWell1;
 
+import java.util.Scanner;
+import java.util.stream.IntStream;
+
 public class P1_seqOpen2 {
 
 	/*
@@ -24,7 +27,17 @@ public class P1_seqOpen2 {
 		3 4 5 6
 	 */
 	public static void main(String[] args) {
-		
+		try ( Scanner sc = new Scanner(System.in) ) {
+		    int input1 = sc.nextInt();
+		    int input2 = sc.nextInt();
+
+		    int bigNum   = input1>=input2 ? input1 : input2;
+		    int smallNum = input1<input2  ? input1 : input2;
+
+		    IntStream is = IntStream.rangeClosed(smallNum, bigNum);
+		    String result = is.collect(StringBuilder::new, (sb,i) -> sb.append(i+" "), StringBuilder::append).toString();
+		    System.out.println(result.substring(0, result.length()-1));
+		}
 	}
 
 }
