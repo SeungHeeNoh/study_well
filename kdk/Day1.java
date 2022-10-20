@@ -15,6 +15,7 @@ public class Day1 {
         String str = "";
         str = br.readLine();
 
+        
         String[] input = str.split(" ");
         Integer start = Integer.parseInt(input[0]);
         Integer end = Integer.parseInt(input[1]);
