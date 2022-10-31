@@ -1,10 +1,5 @@
 package kdk;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -19,8 +14,11 @@ public class NumberReverse {
 
     public int[] solution(long input) {
 
-        String sInput = input + "";
+        String sInput = String.valueOf(input);
+        StringBuffer sb = new StringBuffer(sInput);
 
-        return Stream.of(String.valueOf(sInput).split("")).mapToInt(Integer::parseInt).toArray();
+        String rInput = sb.reverse().toString();
+
+        return Stream.of(String.valueOf(rInput).split("")).mapToInt(Integer::parseInt).toArray();
     }
 }
