@@ -1,12 +1,6 @@
 package kdk;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
