@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
  * 
  * 짝수 홀수 개수
  * https://school.programmers.co.kr/learn/courses/30/lessons/120831
- 
+ *
  */
 public class 짝수의합 {
 
