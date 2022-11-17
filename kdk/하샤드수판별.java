@@ -1,6 +1,5 @@
 package kdk;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
@@ -23,13 +22,9 @@ public class 하샤드수판별 {
 
         boolean answer = true;
 
-        //step1. int 숫자값을 int[] 로 전환
-        int[] arr = Stream.of(String.valueOf(x).split("")).mapToInt(Integer::parseInt).toArray();
+        int sum = Stream.of(String.valueOf(x).split("")).mapToInt(Integer::parseInt).sum();
 
-        //step2. 배열의 모든 요소를 합
-        int sum = Arrays.stream(arr).sum();
-
-        //step3. 입력값 x 를 자릿수의 합인 sum 으로 나누어 나머지가 없으면 하샤드의 수로 판정
+        //입력값 x 를 자릿수의 합인 sum 으로 나누어 나머지가 없으면 하샤드의 수로 판정
         if (x % sum == 0) {
             answer = true;
         } else {

@@ -1,7 +1,6 @@
 package kdk;
 
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
@@ -14,6 +13,6 @@ public class 머쓱이보다키큰사람 {
 
     public int solution(int[] array, int height) {
 
-        return (int)Arrays.stream(array).boxed().collect(Collectors.toList()).stream().filter(s -> s > height).count();
+        return (int)Arrays.stream(array).boxed().filter(s -> s > height).count();
     }
 }

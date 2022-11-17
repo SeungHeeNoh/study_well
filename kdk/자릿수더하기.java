@@ -1,6 +1,5 @@
 package kdk;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 /**
@@ -22,11 +21,6 @@ public class 자릿수더하기 {
     public int solution(int n) {
 
         //step1. int 숫자값을 int[] 로 전환
-        int[] arr = Stream.of(String.valueOf(n).split("")).mapToInt(Integer::parseInt).toArray();
-
-        //step2. 배열의 모든 요소를 합
-        int sum = Arrays.stream(arr).sum();
-
-        return sum;
+        return Stream.of(String.valueOf(n).split("")).mapToInt(Integer::parseInt).sum();
     }
 }
