@@ -18,3 +18,4 @@ Study JDK8 and Git/GitHub
 |2022. 10. 20.|- branch 생성하기||
 |2022. 10. 26.|- git 기본 개념|- [2. git 기본 개념.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/2.%20git%20%EA%B8%B0%EB%B3%B8%20%EA%B0%9C%EB%85%90.pptx)|
 |2022. 11. 16.|- git 브랜치 사용법<br/> - pull request 사용법<br/> - github의 issue/project 사용<br/> - Stream을 사용해야 하는 이유|- [3. git branch.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/3.%20git%20branch.pptx)<br/> - [4-1. github pull request.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/4-1.%20github%20pull%20request.pptx)<br/> - [[GitHub] Issue, Project 활용](https://velog.io/@dohaeng0/GitHub-Project-Issue-%ED%99%9C%EC%9A%A9)<br/>|
+|2022. 11. 25.|- git merge 하는 방법 |- [4. merge.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/4.%20merge.pptx)|
