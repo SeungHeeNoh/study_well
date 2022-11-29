@@ -16,6 +16,6 @@ public class HateEven {
     }
 
     public static int[] solution(int n) {
-        return IntStream.rangeClosed(1, n).filter(num -> num % 2 != 0).sorted().toArray();
+        return IntStream.rangeClosed(1, n).filter(num -> num % 2 != 0).toArray();
     }
 }
