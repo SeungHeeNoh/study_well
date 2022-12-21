@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import service.SweetPotatoService;
 import service.SweetPotatoServiceImpl;
@@ -11,6 +12,10 @@ public class SweetPotatoController {
 	
 	public SweetPotatoController() {
 		SweetPotatoService = new SweetPotatoServiceImpl();
+	}
+
+	public List<SweetPotato> filterSweetPotatos(Predicate<SweetPotato> predicate) {
+		return SweetPotatoService.filterSweetPotatos(predicate);
 	}
 
 	public List<SweetPotato> filterByType(String type) {

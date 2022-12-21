@@ -2,6 +2,7 @@ package repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import vo.SweetPotato;
 
@@ -96,5 +97,17 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 	 * 
 	 * 음.. 안되겠다. 이건 DRY원칙을 어기는 거니까 리팩토링해서 반복되는 코드를 해결해보자!
 	 */
-	
+
+	@Override
+	public List<SweetPotato> filterSweetPotatos(Predicate<SweetPotato> predicate) {
+		List<SweetPotato> resultList = new ArrayList<>();
+
+		for (SweetPotato sweetPotato : SweetPotatoField) {
+			if (predicate.test(sweetPotato)) {
+				resultList.add(sweetPotato);
+			}
+		}
+
+		return resultList;
+	}
 }
