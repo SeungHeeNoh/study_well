@@ -7,7 +7,5 @@ import vo.SweetPotato;
 
 public interface SweetPotatoService {
 
-	List<SweetPotato> filterGreaterThanAndType(int weight, String type);
-
 	List<SweetPotato> filterSweetPotatos(Predicate<SweetPotato> predicate);
 }

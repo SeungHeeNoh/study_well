@@ -26,6 +26,6 @@ public class SweetPotatoController {
 	}
 	
 	public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
-		return SweetPotatoService.filterGreaterThanAndType(weight, type);
+		return SweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight && type.equals(sweetPotato.getType()));
 	}
 }
