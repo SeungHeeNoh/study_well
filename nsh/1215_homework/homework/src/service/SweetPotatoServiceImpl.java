@@ -15,11 +15,6 @@ public class SweetPotatoServiceImpl implements SweetPotatoService {
 	}
 
 	@Override
-	public List<SweetPotato> filterByType(String type) {
-		return sweetPotatoRepository.filterByType(type);
-	}
-
-	@Override
 	public List<SweetPotato> filterGreaterThan(int weight) {
 		return sweetPotatoRepository.filterGreaterThan(weight);
 	}

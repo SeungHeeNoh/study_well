@@ -20,23 +20,6 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 		SweetPotatoField.add(new SweetPotato("호박고구마", 610));
 	}
 
-	/* 오늘은 고구마 판매점 첫 출근날!!!
-	 * 첫 업무로 특정 고구마 종류만 골라내는 로직 개발 업무를 받았다~
-	 * 
-	 * 아 너무 쉽지!!
-	 */
-	@Override
-	public List<SweetPotato> filterByType(String type) {
-		List<SweetPotato> resultList = new ArrayList<SweetPotato>();
-		
-		for (SweetPotato sweetPotato : SweetPotatoField) {
-			if (sweetPotato.getType().equals(type)) {
-				resultList.add(sweetPotato);
-			}
-		}
-		return resultList;
-	}
-
 	/* 오늘은 고구마 판매점 두번째 출근날!!!
 	 * 오늘은 특정 무게 초과인 고구마만 골라내는 로직 개발 업무를 받았다.
 	 * 

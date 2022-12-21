@@ -14,12 +14,8 @@ public class SweetPotatoController {
 		SweetPotatoService = new SweetPotatoServiceImpl();
 	}
 
-	public List<SweetPotato> filterSweetPotatos(Predicate<SweetPotato> predicate) {
-		return SweetPotatoService.filterSweetPotatos(predicate);
-	}
-
 	public List<SweetPotato> filterByType(String type) {
-		return SweetPotatoService.filterByType(type);
+		return SweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> type.equals(sweetPotato.getType()));
 	}
 
 	public List<SweetPotato> filterGreaterThan(int weight) {
