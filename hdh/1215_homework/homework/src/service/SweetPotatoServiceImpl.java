@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import repository.SweetPotatoRepository;
 import repository.SweetPotatoRepositoryImpl;
@@ -15,22 +16,27 @@ public class SweetPotatoServiceImpl implements SweetPotatoService {
 
 	@Override
 	public List<SweetPotato> filterByType(String type) {
-		return sweetPotatoRepository.filterByType(type);
+		Predicate<SweetPotato> sameType = (sweetPotato) -> sweetPotato.getType().equals(type);
+		return sweetPotatoRepository.filter(sameType);
 	}
 
 	@Override
 	public List<SweetPotato> filterGreaterThan(int weight) {
-		return sweetPotatoRepository.filterGreaterThan(weight);
+		Predicate<SweetPotato> greaterThan = (sweetPotato) -> sweetPotato.getWeight() > weight;
+		return sweetPotatoRepository.filter(greaterThan);
 	}
 
 	@Override
 	public List<SweetPotato> filterByLessThan(int weight) {
-		return sweetPotatoRepository.filterByLessThan(weight);
+		Predicate<SweetPotato> lessThan = (sweetPotato) -> sweetPotato.getWeight() < weight;
+		return sweetPotatoRepository.filter(lessThan);
 	}
 
 	@Override
 	public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
-		return sweetPotatoRepository.filterGreaterThanAndType(weight, type);
+		Predicate<SweetPotato> greaterThan = (sweetPotato) -> sweetPotato.getWeight() > weight;
+		Predicate<SweetPotato> greaterThanAndSameType = greaterThan.and((sweetPotato) -> sweetPotato.getType().equals(type));
+		return sweetPotatoRepository.filter(greaterThanAndSameType);
 	}
 
 	
