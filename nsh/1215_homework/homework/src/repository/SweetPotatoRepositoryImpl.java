@@ -20,24 +20,6 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 		SweetPotatoField.add(new SweetPotato("호박고구마", 610));
 	}
 
-	/* 오늘은 고구마 판매점 세번째 출근날!!!
-	 * 오늘은 특정 무게 미만인 고구마만 골라내는 로직 개발 업무를 받았다.
-	 * 
-	 * 음 이건 위에 메소드랑 부등호 방향 빼고 다  똑같은데... 이래도 되는건가...?
-	 */
-	@Override
-	public List<SweetPotato> filterByLessThan(int weight) {
-		List<SweetPotato> resultList = new ArrayList<SweetPotato>();
-
-		for (SweetPotato sweetPotato : SweetPotatoField) {
-			if (sweetPotato.getWeight() < weight) {
-				resultList.add(sweetPotato);
-			}
-		}
-
-		return resultList;
-	}
-
 	/* 오늘은 고구마 판매점 네번째 출근날!!!
 	 * 오늘 업무로 특정 무게 초과이면서 특정 타입인 고구마만 골라내는 로직 개발 업무를 받았다.
 	 * 

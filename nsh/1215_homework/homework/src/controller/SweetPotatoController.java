@@ -22,7 +22,7 @@ public class SweetPotatoController {
 	}
 	
 	public List<SweetPotato> filterByLessThan(int weight) {
-		return SweetPotatoService.filterByLessThan(weight);
+		return SweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> sweetPotato.getWeight() < weight);
 	}
 	
 	public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
