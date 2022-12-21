@@ -1,7 +1,6 @@
 package controller;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 import service.SweetPotatoService;
 import service.SweetPotatoServiceImpl;
@@ -19,7 +18,7 @@ public class SweetPotatoController {
 	}
 
 	public List<SweetPotato> filterGreaterThan(int weight) {
-		return SweetPotatoService.filterGreaterThan(weight);
+		return SweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight);
 	}
 	
 	public List<SweetPotato> filterByLessThan(int weight) {

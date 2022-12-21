@@ -20,24 +20,6 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 		SweetPotatoField.add(new SweetPotato("호박고구마", 610));
 	}
 
-	/* 오늘은 고구마 판매점 두번째 출근날!!!
-	 * 오늘은 특정 무게 초과인 고구마만 골라내는 로직 개발 업무를 받았다.
-	 * 
-	 * 음 어제 코드랑 비슷한 거 같은데?
-	 */
-	@Override
-	public List<SweetPotato> filterGreaterThan(int weight) {
-		List<SweetPotato> resultList = new ArrayList<SweetPotato>();
-
-		for (SweetPotato sweetPotato : SweetPotatoField) {
-			if (sweetPotato.getWeight() > weight) {
-				resultList.add(sweetPotato);
-			}
-		}
-
-		return resultList;
-	}
-
 	/* 오늘은 고구마 판매점 세번째 출근날!!!
 	 * 오늘은 특정 무게 미만인 고구마만 골라내는 로직 개발 업무를 받았다.
 	 * 
