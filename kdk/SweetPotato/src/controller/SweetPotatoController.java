@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 import service.SweetPotatoService;
 import service.SweetPotatoServiceImpl;
@@ -27,5 +28,9 @@ public class SweetPotatoController {
 	
 	public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
 		return SweetPotatoService.filterGreaterThanAndType(weight, type);
+	}
+
+	public List<SweetPotato> filter(Predicate<SweetPotato> p) {
+		return SweetPotatoService.filter(p);
 	}
 }
