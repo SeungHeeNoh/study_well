@@ -6,12 +6,12 @@ import vo.SweetPotato;
 
 public interface SweetPotatoService {
 
-	List<SweetPotato> filterByType(String type);
+    List<SweetPotato> filterByType(String type);
 
-	List<SweetPotato> filterGreaterThan(int weight);
+    List<SweetPotato> filterGreaterThan(int weight);
 
-	List<SweetPotato> filterByLessThan(int weight);
+    List<SweetPotato> filterByLessThan(int weight);
 
-	List<SweetPotato> filterGreaterThanAndType(int weight, String type);
-	
+    List<SweetPotato> filterGreaterThanAndType(int weight, String type);
+
 }

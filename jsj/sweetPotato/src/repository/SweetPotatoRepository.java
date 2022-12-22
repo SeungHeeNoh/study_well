@@ -6,6 +6,6 @@ import vo.SweetPotato;
 
 public interface SweetPotatoRepository {
 
-	List<SweetPotato> filter(Predicate<SweetPotato> predicate);
+    List<SweetPotato> filter(Predicate<SweetPotato> predicate);
 
 }
