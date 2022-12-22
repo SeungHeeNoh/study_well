@@ -2,7 +2,7 @@ package repository;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.function.Predicate;
 import vo.SweetPotato;
 
 public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
