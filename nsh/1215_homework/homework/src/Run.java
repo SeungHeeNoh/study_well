@@ -11,7 +11,7 @@ public class Run {
 		List<SweetPotato> sweetPotatoBox2 = bookController.filterGreaterThan(500);
 		List<SweetPotato> sweetPotatoBox3 = bookController.filterByLessThan(200);
 		List<SweetPotato> sweetPotatoBox4 = bookController.filterGreaterThanAndType(500, "호박고구마");
-		
+
 		System.out.println(sweetPotatoBox1.size() == 3);
 		System.out.println(sweetPotatoBox2.size() == 3);
 		System.out.println(sweetPotatoBox3.size() == 1);
