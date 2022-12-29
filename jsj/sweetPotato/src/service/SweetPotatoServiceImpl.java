@@ -31,7 +31,7 @@ public class SweetPotatoServiceImpl implements SweetPotatoService {
     @Override
     public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
         return sweetPotatoRepository
-                .filter(sweetPotato -> sweetPotato.getWeight() > weight && sweetPotato.getType().equals(type));
+                .filter(sweetPotato -> sweetPotato.getWeight() > weight && type.equals(sweetPotato.getType()));
     }
 
 }
