@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import vo.Potato;
 import vo.SweetPotato;
 
 public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
@@ -34,6 +35,19 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 		List<SweetPotato> resultList = new ArrayList<>();
 
 		for (SweetPotato sweetPotato : sweetPotatoField) {
+			if (predicate.test(sweetPotato)) {
+				resultList.add(sweetPotato);
+			}
+		}
+
+		return resultList;
+	}
+
+	@Override
+	public List<Potato> filterPotatos(Predicate<Potato> predicate) {
+		List<Potato> resultList = new ArrayList<>();
+
+		for (Potato sweetPotato : potatoField) {
 			if (predicate.test(sweetPotato)) {
 				resultList.add(sweetPotato);
 			}
