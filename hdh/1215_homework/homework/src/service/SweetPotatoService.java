@@ -1,17 +1,18 @@
 package service;
 
 import java.util.List;
-
-import vo.SweetPotato;
+import vo.Vegetable;
 
 public interface SweetPotatoService {
 
-	List<SweetPotato> filterByType(String type);
+	List<? extends Vegetable> filterByType(String group, String type, boolean isSame);
 
-	List<SweetPotato> filterGreaterThan(int weight);
+	List<? extends Vegetable> filterGreaterThan(String group, int weight);
 
-	List<SweetPotato> filterByLessThan(int weight);
+	List<? extends Vegetable> filterByLessThan(String group, int weight);
 
-	List<SweetPotato> filterGreaterThanAndType(int weight, String type);
+	List<? extends Vegetable> filterGreaterThanAndType(String group, int weight, String type);
+
+	List<? extends Vegetable> filterOrigin(String group, String origin);
 	
 }

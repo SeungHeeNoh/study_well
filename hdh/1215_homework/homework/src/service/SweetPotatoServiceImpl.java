@@ -6,6 +6,7 @@ import java.util.function.Predicate;
 import repository.SweetPotatoRepository;
 import repository.SweetPotatoRepositoryImpl;
 import vo.SweetPotato;
+import vo.Vegetable;
 
 public class SweetPotatoServiceImpl implements SweetPotatoService {
 	private final SweetPotatoRepository sweetPotatoRepository;
@@ -15,30 +16,38 @@ public class SweetPotatoServiceImpl implements SweetPotatoService {
 	}
 
 	@Override
-	public List<SweetPotato> filterByType(String type) {
-		Predicate<SweetPotato> sameType = (sweetPotato) -> sweetPotato.getType().equals(type);
-		return sweetPotatoRepository.filter(sameType);
+	public List<? extends Vegetable> filterByType(String group, String type, boolean isSame) {
+		Predicate<Vegetable> sameType = (vegetable) -> vegetable.getType().equals(type);
+		if (!isSame) {
+			sameType = sameType.negate();
+		}
+		
+		return sweetPotatoRepository.filter(group, sameType);
 	}
 
 	@Override
-	public List<SweetPotato> filterGreaterThan(int weight) {
-		Predicate<SweetPotato> greaterThan = (sweetPotato) -> sweetPotato.getWeight() > weight;
-		return sweetPotatoRepository.filter(greaterThan);
+	public List<? extends Vegetable> filterGreaterThan(String group, int weight) {
+		Predicate<Vegetable> greaterThan = (vegetable) -> vegetable.getWeight() > weight;
+		return sweetPotatoRepository.filter(group, greaterThan);
 	}
 
 	@Override
-	public List<SweetPotato> filterByLessThan(int weight) {
-		Predicate<SweetPotato> lessThan = (sweetPotato) -> sweetPotato.getWeight() < weight;
-		return sweetPotatoRepository.filter(lessThan);
+	public List<? extends Vegetable> filterByLessThan(String group, int weight) {
+		Predicate<Vegetable> lessThan = (vegetable) -> vegetable.getWeight() < weight;
+		return sweetPotatoRepository.filter(group, lessThan);
 	}
 
 	@Override
-	public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
-		Predicate<SweetPotato> greaterThan = (sweetPotato) -> sweetPotato.getWeight() > weight;
-		Predicate<SweetPotato> greaterThanAndSameType = greaterThan.and((sweetPotato) -> sweetPotato.getType().equals(type));
-		return sweetPotatoRepository.filter(greaterThanAndSameType);
+	public List<? extends Vegetable> filterGreaterThanAndType(String group, int weight, String type) {
+		Predicate<Vegetable> greaterThan = (vegetable) -> vegetable.getWeight() > weight;
+		Predicate<Vegetable> greaterThanAndSameType = greaterThan.and((vegetable) -> vegetable.getType().equals(type));
+		return sweetPotatoRepository.filter(group, greaterThanAndSameType);
 	}
 
-	
+	@Override
+	public List<? extends Vegetable> filterOrigin(String group, String origin) {
+		Predicate<Vegetable> sameOrigin = (vegetable) -> vegetable.getOrigin().equals(origin);
+		return sweetPotatoRepository.filter(group, sameOrigin);
+	}	
 
 }
