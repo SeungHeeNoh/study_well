@@ -13,19 +13,19 @@ public class SweetPotatoController {
 		hardyPlantService = new HardyPlantServiceImpl();
 	}
 
-	public List<SweetPotato> filterByType(List<SweetPotato> sweetPotatoField, String type) {
-		return hardyPlantService.filter(sweetPotatoField, (SweetPotato sweetPotato) -> type.equals(sweetPotato.getType()));
+	public List<SweetPotato> filterByType(List<SweetPotato> field, String type) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> type.equals(sweetPotato.getType()));
 	}
 
-	public List<SweetPotato> filterGreaterThan(List<SweetPotato> sweetPotatoField, int weight) {
-		return hardyPlantService.filter(sweetPotatoField, (SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight);
+	public List<SweetPotato> filterByWeightGreaterThan(List<SweetPotato> field, int weight) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight);
 	}
 	
-	public List<SweetPotato> filterByLessThan(List<SweetPotato> sweetPotatoField, int weight) {
-		return hardyPlantService.filter(sweetPotatoField, (SweetPotato sweetPotato) -> sweetPotato.getWeight() < weight);
+	public List<SweetPotato> filterByLessThan(List<SweetPotato> field, int weight) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> sweetPotato.getWeight() < weight);
 	}
 	
-	public List<SweetPotato> filterGreaterThanAndType(List<SweetPotato> sweetPotatoField, int weight, String type) {
-		return hardyPlantService.filter(sweetPotatoField, (SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight && type.equals(sweetPotato.getType()));
+	public List<SweetPotato> filterByWeightGreaterThanAndType(List<SweetPotato> field, int weight, String type) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight && type.equals(sweetPotato.getType()));
 	}
 }

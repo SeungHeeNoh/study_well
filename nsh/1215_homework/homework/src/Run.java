@@ -7,7 +7,7 @@ import vo.Potato;
 import vo.SweetPotato;
 
 public class Run {
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 		List<SweetPotato> sweetPotatoField;
 		List<Potato> potatoField;
 		
@@ -31,9 +31,9 @@ public class Run {
 		PotatoController potatoController = new PotatoController();
 
 		List<SweetPotato> sweetPotatoBox1 = sweetPotatoController.filterByType(sweetPotatoField, "밤고구마");
-		List<SweetPotato> sweetPotatoBox2 = sweetPotatoController.filterGreaterThan(sweetPotatoField, 500);
+		List<SweetPotato> sweetPotatoBox2 = sweetPotatoController.filterByWeightGreaterThan(sweetPotatoField, 500);
 		List<SweetPotato> sweetPotatoBox3 = sweetPotatoController.filterByLessThan(sweetPotatoField, 200);
-		List<SweetPotato> sweetPotatoBox4 = sweetPotatoController.filterGreaterThanAndType(sweetPotatoField, 500, "호박고구마");
+		List<SweetPotato> sweetPotatoBox4 = sweetPotatoController.filterByWeightGreaterThanAndType(sweetPotatoField, 500, "호박고구마");
 
 		System.out.println(sweetPotatoBox1.size() == 3);
 		System.out.println(sweetPotatoBox2.size() == 3);
@@ -41,7 +41,7 @@ public class Run {
 		System.out.println(sweetPotatoBox4.size() == 2);
 
 		List<Potato> potatoBox1 = potatoController.filterByType(potatoField, "봄감자");
-		List<Potato> potatoBox2 = potatoController.filterGreaterThan(potatoField, 330);
+		List<Potato> potatoBox2 = potatoController.filterByWeightGreaterThan(potatoField, 330);
 		List<Potato> potatoBox3 = potatoController.filterByOrigin(potatoField, "제주");
 		List<Potato> potatoBox4 = potatoController.filterByNotType(potatoField, "봄감자");
 
