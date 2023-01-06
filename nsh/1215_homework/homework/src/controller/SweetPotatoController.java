@@ -2,30 +2,30 @@ package controller;
 
 import java.util.List;
 
-import service.SweetPotatoService;
-import service.SweetPotatoServiceImpl;
+import service.HardyPlantService;
+import service.HardyPlantServiceImpl;
 import vo.SweetPotato;
 
 public class SweetPotatoController {
-	private final SweetPotatoService sweetPotatoService;
+	private final HardyPlantService hardyPlantService;
 	
 	public SweetPotatoController() {
-		sweetPotatoService = new SweetPotatoServiceImpl();
+		hardyPlantService = new HardyPlantServiceImpl();
 	}
 
-	public List<SweetPotato> filterByType(String type) {
-		return sweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> type.equals(sweetPotato.getType()));
+	public List<SweetPotato> filterByType(List<SweetPotato> field, String type) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> type.equals(sweetPotato.getType()));
 	}
 
-	public List<SweetPotato> filterGreaterThan(int weight) {
-		return sweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight);
+	public List<SweetPotato> filterByWeightGreaterThan(List<SweetPotato> field, int weight) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight);
 	}
 	
-	public List<SweetPotato> filterByLessThan(int weight) {
-		return sweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> sweetPotato.getWeight() < weight);
+	public List<SweetPotato> filterByLessThan(List<SweetPotato> field, int weight) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> sweetPotato.getWeight() < weight);
 	}
 	
-	public List<SweetPotato> filterGreaterThanAndType(int weight, String type) {
-		return sweetPotatoService.filterSweetPotatos((SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight && type.equals(sweetPotato.getType()));
+	public List<SweetPotato> filterByWeightGreaterThanAndType(List<SweetPotato> field, int weight, String type) {
+		return hardyPlantService.filter(field, (SweetPotato sweetPotato) -> sweetPotato.getWeight() > weight && type.equals(sweetPotato.getType()));
 	}
 }
