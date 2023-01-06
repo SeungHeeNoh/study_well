@@ -1,15 +1,19 @@
 package repository;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+import vo.Potato;
 import vo.SweetPotato;
 
 
 public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 	
 	private List<SweetPotato> SweetPotatoField;
+	private List<Potato> potatoField;
 	
 	public SweetPotatoRepositoryImpl() {
 		SweetPotatoField = new ArrayList<>();
@@ -19,6 +23,14 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 		SweetPotatoField.add(new SweetPotato("밤고구마", 333));
 		SweetPotatoField.add(new SweetPotato("호박고구마", 320));
 		SweetPotatoField.add(new SweetPotato("호박고구마", 610));
+
+		potatoField = new ArrayList<>();
+		potatoField.add(new Potato("봄감자", 200, "경기 여주"));
+		potatoField.add(new Potato("봄감자", 580, "전북 김제"));
+		potatoField.add(new Potato("봄감자", 150, "전남 보성"));
+		potatoField.add(new Potato("봄감자", 333, "경남 밀양"));
+		potatoField.add(new Potato("고랭지 감자", 320, "강원도 평창"));
+		potatoField.add(new Potato("가을 감자", 610, "제주"));
 	}
 
 	/* 오늘은 고구마 판매점 첫 출근날!!!
@@ -99,16 +111,27 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 	 * 음.. 안되겠다. 이건 DRY원칙을 어기는 거니까 리팩토링해서 반복되는 코드를 해결해보자!
 	 */
 	@Override
-	public List<SweetPotato> filter(Predicate<SweetPotato> p) {
-		
-		List<SweetPotato> result = new ArrayList<SweetPotato>();
-		for (SweetPotato e : SweetPotatoField) {
-			if (p.test(e)) {
-				result.add(e);
+	public <T> List<T> filter(Class<T> cls, Predicate<T> p) {
+
+		if (cls.getTypeName().equals(SweetPotato.class.getTypeName())) {
+			List<SweetPotato> result = new ArrayList<SweetPotato>();
+			for (SweetPotato e : SweetPotatoField) {
+				if (p.test((T) e)) {
+					result.add(e);
+				}	
 			}
+
+			return (List<T>) result;
+		} else {
+			List<Potato> result = new ArrayList<Potato>();
+			for (Potato e : potatoField) {
+				if (p.test((T) e)) {
+					result.add(e);
+				}
+			}
+			return (List<T>) result;
 		}
 
-		return result;
 	}
 
 	
