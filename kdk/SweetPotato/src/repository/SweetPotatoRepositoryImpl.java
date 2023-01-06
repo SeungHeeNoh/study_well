@@ -1,7 +1,5 @@
 package repository;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -111,6 +109,7 @@ public class SweetPotatoRepositoryImpl implements SweetPotatoRepository {
 	 * 음.. 안되겠다. 이건 DRY원칙을 어기는 거니까 리팩토링해서 반복되는 코드를 해결해보자!
 	 */
 	@Override
+	@SuppressWarnings("unchecked")
 	public <T> List<T> filter(Class<T> cls, Predicate<T> p) {
 
 		if (cls.getTypeName().equals(SweetPotato.class.getTypeName())) {

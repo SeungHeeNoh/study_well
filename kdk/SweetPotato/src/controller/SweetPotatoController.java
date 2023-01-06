@@ -5,7 +5,6 @@ import java.util.function.Predicate;
 
 import service.SweetPotatoService;
 import service.SweetPotatoServiceImpl;
-import vo.Potato;
 import vo.SweetPotato;
 
 public class SweetPotatoController {
