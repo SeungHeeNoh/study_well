@@ -15,6 +15,6 @@ public interface SweetPotatoService {
 
 	List<SweetPotato> filterGreaterThanAndType(int weight, String type);
 
-    List<SweetPotato> filter(Predicate<SweetPotato> p);
+    <T> List<T> filter(Class<T> cls, Predicate<T> p);
 	
 }

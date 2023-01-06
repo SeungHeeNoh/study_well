@@ -30,7 +30,7 @@ public class SweetPotatoController {
 		return SweetPotatoService.filterGreaterThanAndType(weight, type);
 	}
 
-	public List<SweetPotato> filter(Predicate<SweetPotato> p) {
-		return SweetPotatoService.filter(p);
+	public <T> List<T> filter(Class<T> cls, Predicate<T> p) {
+		return SweetPotatoService.filter(cls, p);
 	}
 }

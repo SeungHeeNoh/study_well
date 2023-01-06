@@ -35,8 +35,8 @@ public class SweetPotatoServiceImpl implements SweetPotatoService {
 	}
 
 	@Override
-	public List<SweetPotato> filter(Predicate<SweetPotato> p) {
-		return sweetPotatoRepository.filter(p);
+	public <T> List<T> filter(Class<T> cls, Predicate<T> p) {
+		return sweetPotatoRepository.filter(cls, p);
 	}
 
 }
