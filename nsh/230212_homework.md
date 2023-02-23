@@ -13,34 +13,49 @@ import java.util.List;
 
 public class Main {
     
-    public void printHomework() throws Exception {
+    public static void printHomework(Transaction transaction) {
+        try {
+            List<Object> resultSet = transaction.select((Database d) -> d.executeQuery("select * from homework"));
+            resultSet.stream().forEach(o -> System.out.println(String.valueOf(o)));
+        } catch(Exception e) {
+            System.out.println(excp.getMessage());
+        }
+    }
+    
+    public static void main(String[] args) {
+        Transaction transaction = new Transaction();
+        printHomework(transaction);
+    }
+}
 
+class Transaction {
+    public List<Object> select(Function<Database, List<Object>> func) throws Exception {
         Database database = DatabasePool.instance().pop();
+
         if ( database == null ) {
             throw new Exception("Database is null.");
         }
         
         try {
-
-            List<String> resultSet = database.executeQuery("select * from homework");
+            List<Object> resultSet = func.apply(database);
+            
             if(resultSet == null || resultSet.size() == 0)  {
                 throw new Exception("No data.");
             }
-            resultSet.stream().forEach(System.out::println);
-
+            
+            return resultSet;
         } catch (Exception excp) {
             System.out.println(excp.getMessage());
+            throw excp;
         } finally {
             DatabasePool.instance().push(database);
         }
-
     }
-
 }
 
 class DatabasePool {
-
     private static DatabasePool dbp;
+
     private DatabasePool() {}
     static DatabasePool instance() {
         if(dbp == null) {
@@ -49,7 +64,6 @@ class DatabasePool {
         return dbp;
     }
 
-    
     Database pop() {
         System.out.println("db connection을 하나 가져온다");
         return new Database();
@@ -59,12 +73,11 @@ class DatabasePool {
         System.out.println("db connection을 돌려준다");
         
     }
-    
 }
 
 class Database {
-
     List<String> homeworkList = new LinkedList<String>();
+
     List<String> executeQuery(String string) {
         homeworkList.add("Excecute Around Pattern");
         return homeworkList ; 
