@@ -25,4 +25,4 @@ Study JDK8 and Git/GitHub
 |2022. 12. 22.|- git reset과 revert 차이 |- [8. git reset과 revert.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/8.%20git%20reset%EA%B3%BC%20revert.pptx)|
 |2023. 4. 13.|- rebase |- [9. rebase.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/9.%20rebase.pptx)|
 |2023. 4. 14.|- 편리한 기능<br> ㄴ amend<br> ㄴ cherry-pick<br> ㄴ reset<br> ㄴ revert<br> ㄴ stash<br>|- [10. 편리한 기능.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/10.%20%ED%8E%B8%EB%A6%AC%ED%95%9C%20%EA%B8%B0%EB%8A%A5.pptx)|
-|2023. 4. 17.|- 보강<br> ㄴpush와 pull이 함께 존재한다면?<br> ㄴgit reset –hard를 적용하면 untraced file은?<br> ㄴuntracked file은 스태시에 넣을 수 다.<br>|- [11. 보강.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/11.%20%EB%B3%B4%EA%B0%95.pptx)|
+|2023. 4. 17.|- 보강<br> ㄴpush와 pull이 함께 존재한다면?<br> ㄴgit reset –hard를 적용하면 untraced file은?<br> ㄴuntracked file은 스태시에 넣을 수 있다.<br>|- [11. 보강.pptx](https://github.com/SeungHeeNoh/study_well/blob/main/docs/11.%20%EB%B3%B4%EA%B0%95.pptx)|
